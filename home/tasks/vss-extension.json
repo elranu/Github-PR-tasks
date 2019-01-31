@@ -1,0 +1,66 @@
+{
+    "manifestVersion": 1,
+    "id": "github-pr-tasks",
+    "version": "1.0.0",
+    "name": "Github pull request tasks",
+    "publisher": "Mariano Julio Vicario",
+    "description": "Github pull request tasks for Azure Pipelines",
+    "targets": [{
+        "id": "Microsoft.VisualStudio.Services"
+    }],
+    "icons": {
+        "default": "images/i_pull-request.svg"
+    },
+    "scopes": [
+        "vso.work",
+        "vso.code_write",
+        "vso.build_execute"
+    ],
+    "categories": [
+        "Azure Boards"
+    ],
+    "branding": {
+        "color": "rgb(34, 34, 34)",
+        "theme": "dark"
+    },
+    "content": {
+        "details": {
+            "path": "readme.md"
+        },
+        "license": {
+            "path": "eula.md"
+        }
+    },
+    "links": {
+        "getstarted": {
+            "uri": "https://github.com/elranu/Github-PR-tasks"
+        },
+        "support": {
+            "uri": "https://github.com/elranu/Github-PR-tasks/issues"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/elranu/Github-PR-tasks"
+    },
+    "contributions": [{
+        "id": "Create-pull-request",
+        "type": "ms.vss-distributed-task.task",
+        "description": "Create PR",
+        "targets": [
+            "ms.vss-distributed-task.tasks"
+        ],
+        "properties": {
+            "name": "tasks/create-pull-request-task"
+        }
+    }],
+    "files": [{
+            "path": "tasks/create-pull-request-task"
+        },
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true,
+            "packagePath": "lib"
+        }
+    ]
+}
