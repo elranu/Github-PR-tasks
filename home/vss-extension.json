@@ -1,15 +1,15 @@
 {
     "manifestVersion": 1,
     "id": "github-pr-tasks",
-    "version": "1.0.0",
+    "version": "1.0.9",
     "name": "Github pull request tasks",
-    "publisher": "Mariano Julio Vicario",
+    "publisher": "elranu",
     "description": "Github pull request tasks for Azure Pipelines",
     "targets": [{
         "id": "Microsoft.VisualStudio.Services"
     }],
     "icons": {
-        "default": "images/i_pull-request.svg"
+        "default": "images/i_pull-request.png"
     },
     "scopes": [
         "vso.work",
@@ -28,7 +28,7 @@
             "path": "readme.md"
         },
         "license": {
-            "path": "eula.md"
+            "path": "readme.md"
         }
     },
     "links": {
@@ -55,12 +55,6 @@
         }
     }],
     "files": [{
-            "path": "tasks/create-pull-request-task"
-        },
-        {
-            "path": "node_modules/vss-web-extension-sdk/lib",
-            "addressable": true,
-            "packagePath": "lib"
-        }
-    ]
+        "path": "tasks/create-pull-request-task"
+    }]
 }
