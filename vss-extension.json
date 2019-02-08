@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "github-pr-tasks",
-    "version": "1.0.9",
+    "version": "1.0.21",
     "name": "Github pull request tasks",
     "publisher": "elranu",
     "description": "Github pull request tasks for Azure Pipelines",
@@ -9,7 +9,7 @@
         "id": "Microsoft.VisualStudio.Services"
     }],
     "icons": {
-        "default": "images/i_pull-request.png"
+        "default": "src/images/i_pull-request.png"
     },
     "scopes": [
         "vso.work",
@@ -17,7 +17,7 @@
         "vso.build_execute"
     ],
     "categories": [
-        "Azure Boards"
+        "Azure Pipelines"
     ],
     "branding": {
         "color": "rgb(34, 34, 34)",
@@ -25,10 +25,10 @@
     },
     "content": {
         "details": {
-            "path": "readme.md"
+            "path": "src/overview.md"
         },
         "license": {
-            "path": "readme.md"
+            "path": "LICENSE"
         }
     },
     "links": {
@@ -51,10 +51,10 @@
             "ms.vss-distributed-task.tasks"
         ],
         "properties": {
-            "name": "tasks/create-pull-request-task"
+            "name": "src/tasks/create-pull-request-task"
         }
     }],
-    "files": [{
-        "path": "tasks/create-pull-request-task"
-    }]
+    "files": [
+        { "path": "src/tasks/create-pull-request-task" }
+    ]
 }

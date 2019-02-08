@@ -1,0 +1,20 @@
+{
+  "name": "create-pull-request-task",
+  "version": "1.0.0",
+  "description": "Create a Github PR",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Github",
+    "pull",
+    "request"
+  ],
+  "author": "Mariano Julio Vicario",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^16.15.0",
+    "azure-pipelines-task-lib": "^2.7.7"
+  }
+}

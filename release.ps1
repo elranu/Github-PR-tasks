@@ -1,0 +1,1 @@
+tsc -p 'src\tsconfig.json'; tfx extension create --manifest-globs vss-extension.json;
