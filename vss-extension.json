@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "github-pr-tasks",
-    "version": "1.0.22",
+    "version": "1.0.23",
     "name": "Github pull request tasks",
     "publisher": "elranu",
     "description": "Github pull request tasks for Azure Pipelines",
