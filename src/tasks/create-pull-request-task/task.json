@@ -9,7 +9,7 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 22
+        "Patch": 23
     },
     "instanceNameFormat": "Create pull request",
     "inputs": [{
@@ -34,7 +34,7 @@
         },
         {
             "name": "headBranch",
-            "type": "string",
+            "type": "pickList",
             "label": "Head Branch",
             "defaultValue": "",
             "required": true,
@@ -46,7 +46,7 @@
         },
         {
             "name": "baseBranch",
-            "type": "string",
+            "type": "pickList",
             "label": "Base branch",
             "defaultValue": "",
             "required": true,
@@ -93,15 +93,15 @@
         {
             "target": "headBranch",
             "endpoint": "/$(system.teamProject)/_apis/sourceProviders/GitHub/branches?serviceEndpointId=$(githubEndpoint)&repository=$(githubRepository)&api-version=5.0-preview.1",
-            "selector": "jsonpath:$.[*]",
-            "keySelector": "jsonpath:$.[*]",
+            "selector": "jsonpath:$.value[*]",
+            "keySelector": "jsonpath:$.value[*]",
             "authKey": "tfs:teamfoundation"
         },
         {
             "target": "baseBranch",
             "endpoint": "/$(system.teamProject)/_apis/sourceProviders/GitHub/branches?serviceEndpointId=$(githubEndpoint)&repository=$(githubRepository)&api-version=5.0-preview.1",
-            "selector": "jsonpath:$[*]",
-            "keySelector": "jsonpath:$[*]",
+            "selector": "jsonpath:$.value[*]",
+            "keySelector": "jsonpath:$.value[*]",
             "authKey": "tfs:teamfoundation"
         }
     ],
