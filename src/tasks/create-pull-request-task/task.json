@@ -83,6 +83,10 @@
             "helpMarkDown": "Pull request description"
         }
     ],
+    "OutputVariables": [{
+      "name": "PULL_REQUEST_ID",
+      "description": "Id of the created/updated pull request"
+    }],
     "sourceDefinitions": [{
             "target": "githubRepository",
             "endpoint": "/$(system.teamProject)/_apis/sourceProviders/GitHub/repositories?serviceEndpointId=$(githubEndpoint)",

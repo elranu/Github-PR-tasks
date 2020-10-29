@@ -7,7 +7,7 @@ const githubEndpointObject = tl.getEndpointAuthorization(githubEndpoint, true);
 const githubRepository = tl.getInput('githubRepository') ? tl.getInput('githubRepository').split('/')
                         : null;
 
-let githubOwner =''; 
+let githubOwner = '';
 let repo = '';
 let githubEndpointToken= '';
 
@@ -26,7 +26,7 @@ if (githubEndpointObject && githubEndpointObject.scheme === 'PersonalAccessToken
 const finalGithubToken = githubEndpointToken || process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 
 const title = tl.getInput('title');
-const body = tl.getInput('body'); 
+const body = tl.getInput('body');
 const baseBranch = tl.getInput('baseBranch');
 const headBranch = githubOwner +':'+ tl.getInput('headBranch');
 const upsert = tl.getBoolInput('upsert');
@@ -37,7 +37,7 @@ async function run() {
             auth: 'token ' + finalGithubToken
         });
         const listPRResponse = await clientWithAuth.pulls.list({owner:githubOwner, repo: repo, state:'open', head: headBranch, base: baseBranch});
-        
+
         if(!upsert && listPRResponse.data && listPRResponse.data.length > 0){
             tl.setResult(tl.TaskResult.Failed, 'The Pull request is already created. Pull request number: ' + listPRResponse.data[0].number + '. If you want to avoid this error select the option Upsert.');
             return;
@@ -47,6 +47,7 @@ async function run() {
             const result = await clientWithAuth.pulls.update({owner: githubOwner, repo: repo, number: listPRResponse.data[0].number, title: title, body: body, state:'open', base: baseBranch});
             if (result.status >= 200 && result.status < 300 && result.data.number > 0)  {
                 tl.setResult(tl.TaskResult.Succeeded, 'Pull request number ' + result.data.number + ' updated');
+                tl.setVariable("PULL_REQUEST_ID", result.data.number.toString())
             }
             else
             {
@@ -57,12 +58,13 @@ async function run() {
             const result = await clientWithAuth.pulls.create({owner: githubOwner, repo: repo, title: title, head: headBranch, base: baseBranch, body: body});
             if (result.status >= 200 && result.status < 300 && result.data.number > 0)  {
                 tl.setResult(tl.TaskResult.Succeeded, 'Pull request number ' + result.data.number + ' created');
+                tl.setVariable("PULL_REQUEST_ID", result.data.number.toString())
             }
             else
             {
                 tl.setResult(tl.TaskResult.Failed, 'Pull request creation failed');
             }
-        }       
+        }
     }
     catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
